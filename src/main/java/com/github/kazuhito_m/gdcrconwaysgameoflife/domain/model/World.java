@@ -20,9 +20,9 @@ public class World {
         final int columnCount = condition.columnCount();
         final int rowCount = condition.rowCount();
         Random random = new Random();
-        boolean[][] matrix = new boolean[columnCount][rowCount];
-        for (int i = 0; i < columnCount; i++) {
-            for (int j = 0; j < rowCount; j++) {
+        boolean[][] matrix = new boolean[rowCount][columnCount];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = random.nextBoolean();
             }
         }

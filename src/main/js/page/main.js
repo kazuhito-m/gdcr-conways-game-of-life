@@ -44,9 +44,9 @@ class MainPage {
 
             context.clearRect(0, 0, canvasWidth, canvasHeight);
 
-            for (let column = 0; column < columnCount; column++) {
-                for (let row = 0; row < rowCount; row++) {
-                    if (matrix[column][row]) {
+            for (let row = 0; row < rowCount; row++) {
+                for (let column = 0; column < columnCount; column++) {
+                    if (matrix[row][column]) {
                         const left = cellWidth * column;
                         const top = cellHeight * row;
                         context.fillRect(left, top, cellWidth, cellHeight);
