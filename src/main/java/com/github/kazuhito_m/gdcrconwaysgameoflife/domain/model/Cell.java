@@ -17,11 +17,15 @@ public class Cell {
     }
 
     private boolean nextAlive(int neighborhoodCount) {
-        return nextBirth(neighborhoodCount);
+        if (dead()) return nextBirth(neighborhoodCount);
+        return nextKeepAlive(neighborhoodCount);
     }
 
     private boolean nextBirth(int neighborhoodCount) {
-        if (dead()) return neighborhoodCount == 3;
+        return neighborhoodCount == 3;
+    }
+
+    private boolean nextKeepAlive(int neighborhoodCount) {
         return neighborhoodCount == 2 || neighborhoodCount == 3;
     }
 
