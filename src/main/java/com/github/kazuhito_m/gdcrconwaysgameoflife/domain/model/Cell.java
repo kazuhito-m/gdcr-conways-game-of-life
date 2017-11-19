@@ -8,8 +8,20 @@ public class Cell {
         return alive;
     }
 
+    public boolean dead() {
+        return !alive();
+    }
+
     public Cell nextGeneration(int neighborhoodCount) {
-        return new Cell(true);
+        return new Cell(nextAlive(neighborhoodCount));
+    }
+
+    private boolean nextAlive(int neighborhoodCount) {
+        return nextBirth(neighborhoodCount);
+    }
+
+    private boolean nextBirth(int neighborhoodCount) {
+        return dead() && neighborhoodCount == 3;
     }
 
     public Cell(boolean alive) {
