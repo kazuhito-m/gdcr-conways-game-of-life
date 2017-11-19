@@ -16,7 +16,7 @@ class LifeGameController {
     }
 
     @GetMapping("getMatrix")
-    boolean[][] getMatrix(HttpSession session) {
+    int[][] getMatrix(HttpSession session) {
         return service.nextWorldOf(session.getId()).matrix();
     }
 

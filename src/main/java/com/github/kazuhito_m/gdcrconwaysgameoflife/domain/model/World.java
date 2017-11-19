@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class World {
 
-    final boolean[][] matrix;
+    final int[][] matrix;
 
-    public boolean[][] matrix() {
+    public int[][] matrix() {
         return matrix;
     }
 
@@ -15,21 +15,21 @@ public class World {
         return new World(new WorldCondition(matrix[0].length, matrix.length));
     }
 
-    private static boolean[][] initialMatrix(WorldCondition condition) {
+    private static int[][] initialMatrix(WorldCondition condition) {
         // 仮実装。1/2で生存になるのは良い物か…。
         final int columnCount = condition.columnCount();
         final int rowCount = condition.rowCount();
         Random random = new Random();
-        boolean[][] matrix = new boolean[rowCount][columnCount];
+        int[][] matrix = new int[rowCount][columnCount];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = random.nextBoolean();
+                matrix[i][j] = random.nextInt(2);
             }
         }
         return matrix;
     }
 
-    World(boolean[][] matrix) {
+    World(int[][] matrix) {
         this.matrix = matrix;
     }
 
