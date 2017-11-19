@@ -28,6 +28,13 @@ public class CellTest {
     }
 
     @Test
+    public void 生きているセルに隣接する生きたセルが1つならば次の世代で死滅する() {
+        Cell sut = new Cell(true);
+        Cell actual = sut.nextGeneration(1);
+        assertThat(actual.alive()).isFalse();
+    }
+
+    @Test
     public void 生きているセルに隣接する生きたセルが2つならば次の世代でも生存する() {
         Cell sut = new Cell(true);
         Cell actual = sut.nextGeneration(2);
