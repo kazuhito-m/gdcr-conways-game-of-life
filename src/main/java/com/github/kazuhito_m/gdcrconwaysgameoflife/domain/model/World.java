@@ -10,7 +10,7 @@ public class World {
         return matrix;
     }
 
-    public World next() {
+    public World nextGeneration() {
         // 仮実装
         return new World(new WorldCondition(matrix[0].length, matrix.length));
     }

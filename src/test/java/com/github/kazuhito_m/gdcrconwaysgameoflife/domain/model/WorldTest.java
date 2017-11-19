@@ -23,7 +23,7 @@ public class WorldTest {
         WorldCondition condition = new WorldCondition(100, 100);
         World sut = new World(condition);
 
-        World worldOfNextGeneration = sut.next();
+        World worldOfNextGeneration = sut.nextGeneration();
 
         int[][] matrix = worldOfNextGeneration.matrix();
 

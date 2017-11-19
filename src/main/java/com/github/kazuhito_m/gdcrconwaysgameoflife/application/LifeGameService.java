@@ -15,9 +15,9 @@ public class LifeGameService {
 
     public World nextWorldOf(String identifier) {
         World world = repository.lookup(identifier);
-        World nextWorld = world.next();
-        repository.register(identifier, nextWorld);
-        return nextWorld;
+        World worldOfNextGeneration = world.nextGeneration();
+        repository.register(identifier, worldOfNextGeneration);
+        return worldOfNextGeneration;
     }
 
     final WorldRepository repository;
