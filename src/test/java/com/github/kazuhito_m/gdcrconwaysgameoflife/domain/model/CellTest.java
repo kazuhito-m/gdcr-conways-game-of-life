@@ -26,5 +26,12 @@ public class CellTest {
         Cell actual = sut.nextGeneration(4);
         assertThat(actual.alive()).isFalse();
     }
-    
+
+    @Test
+    public void 生きているセルに隣接する生きたセルが2つならば次の世代でも生存する() {
+        Cell sut = new Cell(true);
+        Cell actual = sut.nextGeneration(2);
+        assertThat(actual.alive()).isTrue();
+    }
+
 }
