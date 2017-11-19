@@ -22,20 +22,22 @@ class ServerUtils {
     }
 
     /**
-     * URL指定でサーバから結果を値(オブジェクト)としてそのまま返す (PUTで)。
+     * URL指定でサーバから結果を値(オブジェクト)としてそのまま返す (POSTで)。
      */
     postValue(url, sendValue) {
         const xhr = this._xhr;
         xhr.open('POST', url, false);
         if (sendValue) {
+            const sendJson = JSON.stringify(sendValue);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(sendValue);
+            xhr.send(sendJson);
         } else {
             xhr.send();
         }
 
         const jsonText = xhr.responseText;
-        return jsonText;
+        if (jsonText) return JSON.parse(jsonText);
+        return undefined;
     }
 
     /**

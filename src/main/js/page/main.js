@@ -55,8 +55,8 @@ class MainPage {
 
             const matrix = receiveNextMatrix();
 
-            const columnCount = matrix[0].length;
             const rowCount = matrix.length;
+            const columnCount = matrix[0].length;
 
             const cellWidth = canvasWidth / columnCount;
             const cellHeight = canvasHeight / rowCount;
@@ -84,11 +84,14 @@ class MainPage {
         this._html.visibleChangeById('stopLifeGame', !visible);
     }
 
+    /**
+     * 入力状態から、
+     */
     getInputWorldCondition() {
-        return JSON.stringify({
+        return {
             "columnCount": this._html.getInputText('columnCount'),
             "rowCount": this._html.getInputText('rowCount')
-        });
+        };
     }
 
     /**
