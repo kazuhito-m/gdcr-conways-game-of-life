@@ -5,6 +5,14 @@ public class Position {
     final int row;
     final int column;
 
+    int row() {
+        return row;
+    }
+
+    int column() {
+        return column;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (!(other instanceof Position)) return false;

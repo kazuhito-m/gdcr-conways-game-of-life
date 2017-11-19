@@ -15,6 +15,10 @@ public class WorldCondition implements Serializable {
         return rowCount;
     }
 
+    public int[][] blankMatrix() {
+        return new int[rowCount][columnCount];
+    }
+
     public WorldCondition() {
     }
 
