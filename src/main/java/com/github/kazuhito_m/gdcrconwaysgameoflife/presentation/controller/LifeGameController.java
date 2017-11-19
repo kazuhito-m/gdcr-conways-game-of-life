@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping("/api/gameOflife")
+@RequestMapping("/api/gameOfLife")
 class LifeGameController {
 
     @PostMapping(value = "initialize", produces = "application/json; charset=UTF-8")

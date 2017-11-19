@@ -26,9 +26,9 @@ class MainPage {
         this.startButtonVisible(false);
 
         const condition = this.getInputWorldCondition();
-        server.postValue('api/gameOflife/initialize', condition);
+        server.postValue('api/gameOfLife/initialize', condition);
 
-        this.drawWorld(html, () => server.getJson('api/gameOflife/getMatrix'));
+        this.drawWorld(html, () => server.getJson('api/gameOfLife/getMatrix'));
 
     }
 
