@@ -18,7 +18,13 @@ public class Position {
 
     public Set<Position> neighborhoods() {
         Set<Position> positions = new HashSet<>();
-        // TODO 未実装部分。
+        for (int nowRow = row - 1; nowRow <= row + 1; nowRow++) {
+            for (int nowColumn = column - 1; nowColumn <= column + 1; nowColumn++) {
+                Position nowPosition = new Position(nowRow, nowColumn);
+                if (equals(nowPosition)) continue;
+                positions.add(nowPosition);
+            }
+        }
         return positions;
     }
 
