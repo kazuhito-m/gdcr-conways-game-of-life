@@ -9,7 +9,7 @@ public class Cell {
     }
 
     public Cell nextGeneration(int neighborhoodCount) {
-        return this;
+        return new Cell(true);
     }
 
     public Cell(boolean alive) {
