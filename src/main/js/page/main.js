@@ -50,6 +50,7 @@ class MainPage {
         const context = canvas.getContext('2d');
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
+        let generation = 1;
 
         this.timer = setInterval(() => {
 
@@ -63,15 +64,25 @@ class MainPage {
 
             context.clearRect(0, 0, canvasWidth, canvasHeight);
 
+            let allDead = true;
             for (let row = 0; row < rowCount; row++) {
                 for (let column = 0; column < columnCount; column++) {
                     if (matrix[row][column]) {
+                        allDead = false;
                         const left = cellWidth * column;
                         const top = cellHeight * row;
                         context.fillRect(left, top, cellWidth, cellHeight);
                     }
                 }
             }
+
+            if (allDead) {
+                alert("ゲーム終了。全ての生物が死滅しました。最終世代:" + generation);
+                this.startButtonVisible(true);
+                clearInterval(this.timer);
+            }
+
+            generation++;
         }, this.REDRAW_MS);
 
     }
