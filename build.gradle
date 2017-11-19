@@ -17,6 +17,7 @@ apply plugin: 'application'
 apply plugin: 'spring-boot'
 apply plugin: 'idea'
 apply plugin: 'com.moowork.node'
+apply plugin: 'jacoco'
 
 jar {
     baseName = 'gdcr-conways-game-of-life'
@@ -49,6 +50,16 @@ npm_test.dependsOn npm_install
 
 // gradle test の前には、かならず「jsのテスト」を挟む。
 test.dependsOn npm_test
+
+// test の際は、必ずJacocoでカバレッジ取るように。
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.enabled true
+    }
+}
+test.finalizedBy jacocoTestReport
 
 // gradle bootRun の前にも、必ず「jsのトランスパイル」を挟む
 processResources.dependsOn npm_run_build
