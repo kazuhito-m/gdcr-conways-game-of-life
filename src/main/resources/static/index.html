@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="screenId" content="menu">
+    <title>Conways Game of Life</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="css/layout.css" rel="stylesheet"/>
+    <link href="css/prettify.css" rel="stylesheet"/>
+    <style type="text/css">body {padding: 5px 0 5px 0;}</style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Conways Game of Life</h1>
+    </header>
+    <section id="operations">
+        <p>
+            <button type="button" id="startLifeGame">Game start !</button>
+            <button type="button" id="stopLifeGame" style="display: none;">Game stop !</button>
+        </p>
+        column : <input type="text" id="columnCount" maxlength="3" size="3" value="3"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+        row : <input type="text" id="rowCount" maxlength="3" size="3" value="3"
+                     onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    </section>
+    <section>
+        <canvas id="matrixCanvas" width="800" height="800"></canvas>
+    </section>
+</div>
+</body>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

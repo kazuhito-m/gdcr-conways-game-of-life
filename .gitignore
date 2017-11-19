@@ -1,2 +1,38 @@
-.idea
-.gradle
+# ide setting files
+/.idea/
+
+# java's files
+
+*.class
+*.log
+
+# specific
+.cache
+.history
+.lib/
+dist/*
+target/
+
+# IDE specific
+out/
+
+# ENSIME specific
+.ensime_cache/
+.ensime
+
+# Gradle work files
+.gradle/
+build/
+
+# what's ?
+/classes/
+
+# node.js 
+node_modules
+src/main/resources/static/js/index.js
+
+# idea
+*.iml
+
+# user difinition
+src/main/resources/config/sosial.yml
