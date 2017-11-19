@@ -12,6 +12,11 @@ public class Cell {
         return new Cell(nextAlive(neighborhoodCount));
     }
 
+    public static Cell randomInitialize() {
+        // TODO 本実装
+        return new Cell(true);
+    }
+
     private boolean nextAlive(int neighborhoodCount) {
         return alive() && neighborhoodCount == 2 || neighborhoodCount == 3;
     }

@@ -2,6 +2,8 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 
 import org.junit.Test;
 
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CellTest {
@@ -53,6 +55,15 @@ public class CellTest {
         Cell sut = new Cell(true);
         Cell actual = sut.nextGeneration(4);
         assertThat(actual.alive()).isFalse();
+    }
+
+    @Test
+    public void 生死状態をランダムにしたセルを生成することができる() {
+        int actual = (int) IntStream.rangeClosed(0, 10000)
+                .mapToObj(i -> Cell.randomInitialize())
+                .filter(cell -> cell.alive())
+                .count();
+        assertThat(actual).isBetween(4000, 6000);
     }
 
 }
