@@ -39,8 +39,8 @@ public class Cells {
         int count = 0;
         int currentRow = position.row();
         int currentColumn = position.column();
-        for (int row = currentRow - 1; row < currentRow + 1; row++) {
-            for (int column = currentColumn - 1; column < currentColumn + 1; column++) {
+        for (int row = currentRow - 1; row <= currentRow + 1; row++) {
+            for (int column = currentColumn - 1; column <= currentColumn + 1; column++) {
                 Position nowPosition = new Position(row, column);
                 if (position.equals(nowPosition)) continue;
                 if (of(nowPosition).alive()) count++;
