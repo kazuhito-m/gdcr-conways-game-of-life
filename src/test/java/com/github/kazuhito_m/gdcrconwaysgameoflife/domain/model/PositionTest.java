@@ -18,4 +18,12 @@ public class PositionTest {
         assertThat(sut).isEqualTo(new Position(2, 4));
         assertThat(sut).isNotEqualTo(new Position(3, 4));
     }
+
+    @Test
+    public void 同一か否かの判定で型違いはハネることができる() {
+        Position sut = new Position(2, 4);
+        assertThat(sut).isNotEqualTo(new Object());
+        assertThat(sut).isNotEqualTo(null);
+    }
+
 }
