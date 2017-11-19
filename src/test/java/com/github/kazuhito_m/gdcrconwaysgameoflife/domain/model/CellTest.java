@@ -41,4 +41,11 @@ public class CellTest {
         assertThat(actual.alive()).isTrue();
     }
 
+    @Test
+    public void 生きているセルに隣接する生きたセルが3つならば次の世代でも生存する() {
+        Cell sut = new Cell(true);
+        Cell actual = sut.nextGeneration(3);
+        assertThat(actual.alive()).isTrue();
+    }
+
 }
