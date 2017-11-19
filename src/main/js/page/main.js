@@ -28,13 +28,32 @@ class MainPage {
         const condition = this.getInputWorldCondition();
         server.postValue('api/gameOflife/initialize', condition);
 
+        this.drawWorld(html, () => server.getJson('api/gameOflife/getMatrix'));
+
+    }
+
+    /**
+     * 「stop」ボタンクリックイベント。
+     */
+    endLifeGame(e, html, server) {
+        clearInterval(this.timer);
+        this.startButtonVisible(true);
+    }
+
+    /**
+     * 無限ループでライフゲームの表情報を取得し、描画し続ける。
+     * @param receiveNextMatrix 外から受け取る「サーバから次の世代の表情報を受信する」をクロージャ。
+     */
+    drawWorld(html, receiveNextMatrix) {
+
         const canvas = this._html.getElementById('matrixCanvas');
         const context = canvas.getContext('2d');
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
 
         this.timer = setInterval(() => {
-            const matrix = server.getJson('api/gameOflife/getMatrix');
+
+            const matrix = receiveNextMatrix();
 
             const columnCount = matrix[0].length;
             const rowCount = matrix.length;
@@ -55,14 +74,6 @@ class MainPage {
             }
         }, this.REDRAW_MS);
 
-    }
-
-    /**
-     * 「stop」ボタンクリックイベント。
-     */
-    endLifeGame(e, html, server) {
-        clearInterval(this.timer);
-        this.startButtonVisible(true);
     }
 
     /**
