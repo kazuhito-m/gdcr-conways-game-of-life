@@ -1,4 +1,7 @@
-package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
+package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
+
+import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.Position;
+import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.WorldCondition;
 
 import java.util.Collections;
 import java.util.HashMap;

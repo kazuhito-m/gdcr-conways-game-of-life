@@ -7,11 +7,11 @@ public class WorldCondition implements Serializable {
     public int columnCount;
     public int rowCount;
 
-    int columnCount() {
+    public int columnCount() {
         return columnCount;
     }
 
-    int rowCount() {
+    public int rowCount() {
         return rowCount;
     }
 

@@ -1,4 +1,4 @@
-package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
+package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
 import java.util.Random;
 

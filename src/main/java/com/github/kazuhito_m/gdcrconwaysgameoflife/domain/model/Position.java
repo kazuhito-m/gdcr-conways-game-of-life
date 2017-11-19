@@ -5,11 +5,11 @@ public class Position {
     final int row;
     final int column;
 
-    int row() {
+    public int row() {
         return row;
     }
 
-    int column() {
+    public int column() {
         return column;
     }
 
