@@ -20,5 +20,11 @@ public class CellTest {
         assertThat(actual.alive()).isFalse();
     }
 
-
+    @Test
+    public void 死んでいるセルに隣接する生きたセルが4つなら次の世代が誕生しない() {
+        Cell sut = new Cell(false);
+        Cell actual = sut.nextGeneration(4);
+        assertThat(actual.alive()).isFalse();
+    }
+    
 }
