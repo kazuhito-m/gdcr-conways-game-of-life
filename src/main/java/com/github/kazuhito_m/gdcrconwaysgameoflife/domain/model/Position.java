@@ -1,5 +1,8 @@
 package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Position {
 
     final int row;
@@ -11,6 +14,12 @@ public class Position {
 
     public int column() {
         return column;
+    }
+
+    public Set<Position> neighborhoods() {
+        Set<Position> positions = new HashSet<>();
+        // TODO 未実装部分。
+        return positions;
     }
 
     @Override

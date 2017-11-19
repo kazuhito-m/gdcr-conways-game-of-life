@@ -2,6 +2,8 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 
 import org.junit.Test;
 
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PositionTest {
@@ -24,6 +26,15 @@ public class PositionTest {
         Position sut = new Position(2, 4);
         assertThat(sut).isNotEqualTo(new Object());
         assertThat(sut).isNotEqualTo(null);
+    }
+
+    @Test
+    public void ある座標から近隣の座標群を取得することができる() {
+        Position sut = new Position(1, 1);
+
+        Set<Position> actual = sut.neighborhoods();
+
+        assertThat(actual).hasSize(8);
     }
 
 }
