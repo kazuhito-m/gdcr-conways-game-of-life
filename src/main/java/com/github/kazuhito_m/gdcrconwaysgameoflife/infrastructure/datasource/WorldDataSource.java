@@ -7,22 +7,21 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO 仮実装。 後にRedisか何かにしたい。(現在はただのメモリ内Map)
+
 @Repository
 public class WorldDataSource implements WorldRepository {
 
     @Override
     public World register(String identifier, World world) {
-        // TODO 仮実装。 後にRedisか何かに
         return store.put(identifier, world);
     }
 
     @Override
     public World lookup(String identifier) {
-        // TODO 仮実装。 後にRedisか何かに
         return store.get(identifier);
     }
 
-    // TODO 仮実装。 後にRedisか何かに
     final Map<String, World> store = new HashMap<>();
 
 }
