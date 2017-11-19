@@ -22,7 +22,7 @@ public class Cell {
 
     private boolean nextBirth(int neighborhoodCount) {
         if (dead()) return neighborhoodCount == 3;
-        return neighborhoodCount == 2;
+        return neighborhoodCount == 2 || neighborhoodCount == 3;
     }
 
     public Cell(boolean alive) {
