@@ -1,5 +1,6 @@
-package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
+package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
+import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Position;
 import org.junit.Test;
 
 import java.util.Set;

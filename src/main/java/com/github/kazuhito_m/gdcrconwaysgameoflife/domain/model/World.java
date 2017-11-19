@@ -2,6 +2,7 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 
 import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Cell;
 import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Cells;
+import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Position;
 
 public class World {
 
