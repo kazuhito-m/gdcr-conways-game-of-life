@@ -235,7 +235,7 @@ gulp.task('diff-and-copyfile', () => {
         const mainPath = filePath.replace(paths.format_dir, paths.src_dir);
         if (diff(filePath, mainPath)) {
             console.log('Code formatting : ' + mainPath);
-            fileCopy(filePath　, mainPath);
+            fileCopy(filePath, mainPath);
         }
     });
 });
