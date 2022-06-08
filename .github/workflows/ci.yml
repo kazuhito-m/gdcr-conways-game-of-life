@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        java: [17]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Java env
+        - uses: actions/setup-java@v3
+          with:
+            distribution: 'temurin'
+            java-version: ${{ matrix.java }}
+
+      - name: Run tests
+        run: ./gradlew clean test
