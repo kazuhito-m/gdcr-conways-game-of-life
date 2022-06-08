@@ -16,8 +16,7 @@ class ServerUtils {
         xhr.open("GET", url, false);
         xhr.send();
 
-        const jsonText = xhr.responseText;
-        return jsonText;
+        return xhr.responseText;
     }
 
     /**
@@ -35,8 +34,8 @@ class ServerUtils {
         }
 
         const jsonText = xhr.responseText;
-        if (jsonText) return JSON.parse(jsonText);
-        return undefined;
+        if (!jsonText) return undefined;
+        return JSON.parse(jsonText);
     }
 
     /**
@@ -44,8 +43,7 @@ class ServerUtils {
      */
     getJson(url) {
         const jsonText = this.getValue(url);
-        const jsonObj = JSON.parse(jsonText);
-        return jsonObj;
+        return JSON.parse(jsonText);
     }
 }
 
