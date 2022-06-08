@@ -8,9 +8,7 @@ class MainPage {
         this.REDRAW_MS = 200;
 
         // テスト時にMockして動かせるように。
-        this._html = htmlUtils === null ?
-            new HtmlUtils() :
-            htmlUtils;
+        this._html = htmlUtils === null ? new HtmlUtils() : htmlUtils;
         this._server = new ServerUtils();
     }
 
@@ -103,8 +101,12 @@ class MainPage {
         const server = this._server;
         const html = this._html;
         // イベント定義。
-        html.addClickEventById("startLifeGame", (e) => this.startLifeGame(e, html, server));
-        html.addClickEventById("stopLifeGame", (e) => this.endLifeGame(e, html, server));
+        html.addClickEventById("startLifeGame", (e) =>
+            this.startLifeGame(e, html, server)
+        );
+        html.addClickEventById("stopLifeGame", (e) =>
+            this.endLifeGame(e, html, server)
+        );
     }
 }
 
