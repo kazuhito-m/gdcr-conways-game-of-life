@@ -8,7 +8,7 @@ class MainPage {
         this.REDRAW_MS = 200;
 
         // テスト時にMockして動かせるように。
-        this._html = htmlUtils == null ?
+        this._html = htmlUtils === null ?
             new HtmlUtils() :
             htmlUtils;
         this._server = new ServerUtils();
