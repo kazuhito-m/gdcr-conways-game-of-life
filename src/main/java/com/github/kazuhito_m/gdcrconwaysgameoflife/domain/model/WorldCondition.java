@@ -3,9 +3,8 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 import java.io.Serializable;
 
 public class WorldCondition implements Serializable {
-
-    public int columnCount;
-    public int rowCount;
+    private int columnCount;
+    private int rowCount;
 
     public int columnCount() {
         return columnCount;
@@ -26,5 +25,4 @@ public class WorldCondition implements Serializable {
         this.columnCount = columnCount;
         this.rowCount = rowCount;
     }
-
 }

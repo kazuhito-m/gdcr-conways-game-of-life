@@ -1,20 +1,14 @@
-'use strict';
+"use strict";
 
-const ServerUtils = require('../util/server_utils');
-const HtmlUtils = require('../util/html_utils');
+const ServerUtils = require("../util/server_utils");
+const HtmlUtils = require("../util/html_utils");
 
 class MainPage {
-
     constructor(htmlUtils = null) {
-
         this.REDRAW_MS = 200;
 
         // テスト時にMockして動かせるように。
-        if (htmlUtils == null) {
-            this._html = new HtmlUtils();
-        } else {
-            this._html = htmlUtils;
-        }
+        this._html = htmlUtils === null ? new HtmlUtils() : htmlUtils;
         this._server = new ServerUtils();
     }
 
@@ -22,14 +16,12 @@ class MainPage {
      * 「start」クリックイベント。
      */
     startLifeGame(e, html, server) {
-
         this.startButtonVisible(false);
 
         const condition = this.getInputWorldCondition();
-        server.postValue('api/gameOfLife/initialize', condition);
+        server.postValue("api/gameOfLife/initialize", condition);
 
-        this.drawWorld(html, () => server.getJson('api/gameOfLife/getMatrix'));
-
+        this.drawWorld(html, () => server.getJson("api/gameOfLife/getMatrix"));
     }
 
     /**
@@ -45,15 +37,13 @@ class MainPage {
      * @param receiveNextMatrix 外から受け取る「サーバから次の世代の表情報を受信する」をクロージャ。
      */
     drawWorld(html, receiveNextMatrix) {
-
-        const canvas = this._html.getElementById('matrixCanvas');
-        const context = canvas.getContext('2d');
+        const canvas = this._html.getElementById("matrixCanvas");
+        const context = canvas.getContext("2d");
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
         let generation = 1;
 
         this.timer = setInterval(() => {
-
             const matrix = receiveNextMatrix();
 
             const rowCount = matrix.length;
@@ -84,15 +74,14 @@ class MainPage {
 
             generation++;
         }, this.REDRAW_MS);
-
     }
 
     /**
      * start/stopのボタン表示を切り替える。
      */
     startButtonVisible(visible) {
-        this._html.visibleChangeById('startLifeGame', visible);
-        this._html.visibleChangeById('stopLifeGame', !visible);
+        this._html.visibleChangeById("startLifeGame", visible);
+        this._html.visibleChangeById("stopLifeGame", !visible);
     }
 
     /**
@@ -100,8 +89,8 @@ class MainPage {
      */
     getInputWorldCondition() {
         return {
-            "columnCount": this._html.getInputText('columnCount'),
-            "rowCount": this._html.getInputText('rowCount')
+            columnCount: this._html.getInputText("columnCount"),
+            rowCount: this._html.getInputText("rowCount"),
         };
     }
 
@@ -112,10 +101,9 @@ class MainPage {
         const server = this._server;
         const html = this._html;
         // イベント定義。
-        html.addClickEventById('startLifeGame', (e) => this.startLifeGame(e, html, server));
-        html.addClickEventById('stopLifeGame', (e) => this.endLifeGame(e, html, server));
+        html.addClickEventById("startLifeGame", (e) => this.startLifeGame(e, html, server));
+        html.addClickEventById("stopLifeGame", (e) => this.endLifeGame(e, html, server));
     }
-
 }
 
 module.exports = MainPage;

@@ -3,8 +3,9 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 import java.util.Random;
 
 public class Cell {
+    private final boolean alive;
 
-    final boolean alive;
+    private static final Random generator = new Random();
 
     public boolean alive() {
         return alive;
@@ -13,8 +14,6 @@ public class Cell {
     public Cell nextGeneration(int neighborhoodCount) {
         return new Cell(nextAlive(neighborhoodCount));
     }
-
-    private static final Random generator = new Random();
 
     public static Cell randomInitialize() {
         return new Cell(generator.nextBoolean());
@@ -27,5 +26,4 @@ public class Cell {
     public Cell(boolean alive) {
         this.alive = alive;
     }
-
 }

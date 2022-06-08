@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LifeGameService {
+    private final WorldRepository repository;
 
     public void initialize(String identifier, WorldCondition condition) {
         World world = new World(condition);
@@ -20,10 +21,7 @@ public class LifeGameService {
         return worldOfNextGeneration;
     }
 
-    final WorldRepository repository;
-
     public LifeGameService(WorldRepository repository) {
         this.repository = repository;
     }
-
 }

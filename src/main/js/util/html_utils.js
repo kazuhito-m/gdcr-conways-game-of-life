@@ -1,16 +1,11 @@
-'use strict';
+"use strict";
 
 /**
  * HTMLに関する操作(プラスこのアプリ固有の操作を少し)を集めたUtilityクラス。
  */
 class HtmlUtils {
-
     constructor(doc = null) {
-        if (doc === null) {
-            this._document = window.document;
-        } else {
-            this._document = doc;
-        }
+        this._document = doc === null ? window.document : doc;
     }
 
     /**
@@ -42,14 +37,15 @@ class HtmlUtils {
      * Elementに'click'のイベントでリスナーを追加する。
      */
     addClickEventById(id, func) {
-        this._document.getElementById(id).addEventListener('click', func);
+        this._document.getElementById(id)
+            .addEventListener("click", func);
     }
 
     /**
      * Elementの表示・非表示を切り替える。
      */
     visibleChangeById(id, visible) {
-        const displayState = visible ? 'block' : 'none';
+        const displayState = visible ? "block" : "none";
         this._document.getElementById(id).style.display = displayState;
     }
 
@@ -60,7 +56,6 @@ class HtmlUtils {
     getInputText(id) {
         return this.getElementById(id).value;
     }
-
 }
 
 module.exports = HtmlUtils;

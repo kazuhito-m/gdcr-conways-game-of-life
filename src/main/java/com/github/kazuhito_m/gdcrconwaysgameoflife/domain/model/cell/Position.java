@@ -4,9 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Position {
-
-    final int row;
-    final int column;
+    private final int row;
+    private final int column;
 
     public int row() {
         return row;
@@ -43,5 +42,4 @@ public class Position {
         this.row = row;
         this.column = column;
     }
-
 }

@@ -11,6 +11,7 @@ import java.util.Map;
 
 @Repository
 public class WorldDataSource implements WorldRepository {
+    final Map<String, World> store = new HashMap<>();
 
     @Override
     public World register(String identifier, World world) {
@@ -21,7 +22,4 @@ public class WorldDataSource implements WorldRepository {
     public World lookup(String identifier) {
         return store.get(identifier);
     }
-
-    final Map<String, World> store = new HashMap<>();
-
 }

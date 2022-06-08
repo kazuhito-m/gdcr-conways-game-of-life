@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
 /**
  * 主にサーバとの通信を制御するUtils暮らす。
  */
 class ServerUtils {
-
     constructor() {
         this._xhr = new XMLHttpRequest();
     }
@@ -14,11 +13,10 @@ class ServerUtils {
      */
     getValue(url) {
         const xhr = this._xhr;
-        xhr.open('GET', url, false);
+        xhr.open("GET", url, false);
         xhr.send();
 
-        const jsonText = xhr.responseText;
-        return jsonText;
+        return xhr.responseText;
     }
 
     /**
@@ -26,18 +24,18 @@ class ServerUtils {
      */
     postValue(url, sendValue) {
         const xhr = this._xhr;
-        xhr.open('POST', url, false);
+        xhr.open("POST", url, false);
         if (sendValue) {
             const sendJson = JSON.stringify(sendValue);
-            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(sendJson);
         } else {
             xhr.send();
         }
 
         const jsonText = xhr.responseText;
-        if (jsonText) return JSON.parse(jsonText);
-        return undefined;
+        if (!jsonText) return undefined;
+        return JSON.parse(jsonText);
     }
 
     /**
@@ -45,10 +43,8 @@ class ServerUtils {
      */
     getJson(url) {
         const jsonText = this.getValue(url);
-        const jsonObj = JSON.parse(jsonText);
-        return jsonObj;
+        return JSON.parse(jsonText);
     }
-
 }
 
 module.exports = ServerUtils;
