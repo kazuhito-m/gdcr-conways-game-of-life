@@ -26,8 +26,8 @@ group = 'github.com.kazuhitom'
 version = '0.0.1-SNAPSHOT'
 
 node {
-    version = '16.13.2'
-    npmVersion = '8.1.2'
+    version = '11.15.0'
+    npmVersion = '6.7.2'
     download = true
 }
 
