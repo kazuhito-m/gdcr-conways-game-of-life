@@ -1,63 +1,56 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.3'
+        encoding = 'UTF-8'
+        compatibility = JavaVersion.VERSION_17
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
+    id "com.github.node-gradle.node" version "3.1.1"
+}
+
 repositories {
     mavenCentral()
 }
-buildscript {
-    repositories {
-        mavenCentral()
-//        maven {
-//            url "https://plugins.gradle.org/m2/"
-//        }
-    }
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
-//        classpath "com.github.node-gradle:gradle-node-plugin:3.3.0"
-    }
+
+group = 'github.com.kazuhitom'
+version = '0.0.1-SNAPSHOT'
+
+node {
+    version = '16.13.2'
+    npmVersion = '8.1.2'
+    download = true
 }
-
-apply plugin: 'java'
-apply plugin: 'application'
-//apply plugin: 'spring-boot'
-apply plugin: 'idea'
-//apply plugin: "com.github.node-gradle.node"
-apply plugin: 'jacoco'
-
-jar {
-    baseName = 'gdcr-conways-game-of-life'
-    version = '0.0.1-SNAPSHOT'
-}
-
-//ext {
-//    node_version = '16.13.2'
-//    npm_version = '8.1.2'
-//}
-//
-//node {
-//    version = node_version
-//    npmVersion = npm_version
-//    download = true
-//}
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
-//    compile 'org.springframework.boot:spring-boot-starter-web'
-//    compile 'org.springframework.boot:spring-boot-starter-redis'
-//    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1'
 
-//    compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
-//    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
-//    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
-//
-//    compile 'org.springframework.boot:spring-boot-devtools'
-//
-//    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
 
+    implementation 'org.springframework.boot:spring-boot-devtools'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 // gulp_test叩くときには、強制的に npm_install を前に実行するように。
-//npm_test.dependsOn npm_install
+npm_test.dependsOn npm_install
 
 // gradle test の前には、かならず「jsのテスト」を挟む。
-//test.dependsOn npm_test
+test.dependsOn npm_test
 
 // test の際は、必ずJacocoでカバレッジ取るように。
 jacocoTestReport {
@@ -70,4 +63,4 @@ jacocoTestReport {
 test.finalizedBy jacocoTestReport
 
 // gradle bootRun の前にも、必ず「jsのトランスパイル」を挟む
-//processResources.dependsOn npm_run_build
+processResources.dependsOn npm_run_build
