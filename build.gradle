@@ -1,22 +1,24 @@
 repositories {
-    jcenter()
+    mavenCentral()
 }
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
-        classpath "com.moowork.gradle:gradle-node-plugin:0.11"
-        classpath "com.moowork.gradle:gradle-gulp-plugin:0.11"
+//        classpath "com.github.node-gradle:gradle-node-plugin:3.3.0"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'spring-boot'
+//apply plugin: 'spring-boot'
 apply plugin: 'idea'
-apply plugin: 'com.moowork.node'
+//apply plugin: "com.github.node-gradle.node"
 apply plugin: 'jacoco'
 
 jar {
@@ -24,32 +26,38 @@ jar {
     version = '0.0.1-SNAPSHOT'
 }
 
-node {
-    version = '7.0.0'
-    download = true
-}
+//ext {
+//    node_version = '16.13.2'
+//    npm_version = '8.1.2'
+//}
+//
+//node {
+//    version = node_version
+//    npmVersion = npm_version
+//    download = true
+//}
 
 dependencies {
 
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-redis'
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1'
+//    compile 'org.springframework.boot:spring-boot-starter-web'
+//    compile 'org.springframework.boot:spring-boot-starter-redis'
+//    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1'
 
-    compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
-
-    compile 'org.springframework.boot:spring-boot-devtools'
-
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
+//    compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
+//    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+//    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
+//
+//    compile 'org.springframework.boot:spring-boot-devtools'
+//
+//    testCompile 'org.springframework.boot:spring-boot-starter-test'
 
 }
 
 // gulp_test叩くときには、強制的に npm_install を前に実行するように。
-npm_test.dependsOn npm_install
+//npm_test.dependsOn npm_install
 
 // gradle test の前には、かならず「jsのテスト」を挟む。
-test.dependsOn npm_test
+//test.dependsOn npm_test
 
 // test の際は、必ずJacocoでカバレッジ取るように。
 jacocoTestReport {
@@ -62,4 +70,4 @@ jacocoTestReport {
 test.finalizedBy jacocoTestReport
 
 // gradle bootRun の前にも、必ず「jsのトランスパイル」を挟む
-processResources.dependsOn npm_run_build
+//processResources.dependsOn npm_run_build
