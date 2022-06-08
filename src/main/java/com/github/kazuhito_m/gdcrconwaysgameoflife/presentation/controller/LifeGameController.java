@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/api/gameOfLife")
 class LifeGameController {
+    private final LifeGameService service;
 
     @PostMapping(value = "initialize", produces = "application/json; charset=UTF-8")
     void initialize(@RequestBody WorldCondition condition, HttpSession session) {
@@ -20,10 +21,7 @@ class LifeGameController {
         return service.nextWorldOf(session.getId()).matrix();
     }
 
-    final LifeGameService service;
-
     LifeGameController(LifeGameService service) {
         this.service = service;
     }
-
 }

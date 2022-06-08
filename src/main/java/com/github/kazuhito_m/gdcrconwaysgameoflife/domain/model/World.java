@@ -5,9 +5,8 @@ import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Cells;
 import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Position;
 
 public class World {
-
-    final WorldCondition condition;
-    final Cells cells;
+    private final WorldCondition condition;
+    private final Cells cells;
 
     public int[][] matrix() {
         int[][] result = condition.blankMatrix();
@@ -26,7 +25,6 @@ public class World {
         return new World(condition, cells.nextGeneration());
     }
 
-
     World(WorldCondition condition, Cells cells) {
         this.condition = condition;
         this.cells = cells;
@@ -35,5 +33,4 @@ public class World {
     public World(WorldCondition condition) {
         this(condition, Cells.initialize(condition));
     }
-
 }

@@ -10,8 +10,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.toMap;
 
 public class Cells {
-
-    final Map<Position, Cell> cells;
+    private final Map<Position, Cell> cells;
 
     public Cell of(Position position) {
         if (!cells.containsKey(position)) return new Cell(false);
@@ -56,5 +55,4 @@ public class Cells {
     public Cells(Map<Position, Cell> cells) {
         this.cells = cells;
     }
-
 }
