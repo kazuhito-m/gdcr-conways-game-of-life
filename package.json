@@ -31,7 +31,7 @@
     "browserify": "^17.0.0",
     "del": "^6.1.1",
     "eslint-plugin-babel": "^4.0.0",
-    "eslint-plugin-node": "^3.0.3",
+    "eslint-plugin-node": "^11.1.0",
     "fake-request": "^0.2.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
