@@ -7,7 +7,6 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WorldTest {
-
     @Test
     public void 初期配置で世界はランダムに生死のセルが埋まっておりほぼ同数である() {
         WorldCondition condition = new WorldCondition(100, 100);
@@ -36,5 +35,4 @@ public class WorldTest {
                 .filter(alive -> alive == 1)
                 .count();
     }
-
 }

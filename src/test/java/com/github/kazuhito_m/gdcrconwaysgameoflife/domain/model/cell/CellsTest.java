@@ -2,14 +2,12 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
 import org.junit.jupiter.api.Test;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CellsTest {
-
     @Test
     public void セルが9x9の際に真ん中のセルから囲まれてる隣接数が取得できる() {
         Map<Position, Cell> cells = new HashMap<>();
@@ -30,5 +28,4 @@ public class CellsTest {
 
         assertThat(actual).isEqualTo(5);
     }
-
 }

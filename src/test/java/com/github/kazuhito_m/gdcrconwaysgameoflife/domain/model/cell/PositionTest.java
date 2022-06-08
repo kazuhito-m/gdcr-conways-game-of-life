@@ -1,15 +1,12 @@
 package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
-import com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell.Position;
 import org.junit.jupiter.api.Test;
-
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PositionTest {
-
     @Test
     public void 同一の座標か否かを判断できる() {
         Position sut = new Position(2, 4);

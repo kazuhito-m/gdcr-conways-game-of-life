@@ -2,7 +2,6 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
 import org.junit.jupiter.api.Test;
 
-
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,5 +64,4 @@ public class CellTest {
                 .count();
         assertThat(actual).isBetween(4000, 6000);
     }
-
 }

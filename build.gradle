@@ -25,6 +25,15 @@ repositories {
 group = 'github.com.kazuhitom'
 version = '0.0.1-SNAPSHOT'
 
+sourceCompatibility = compatibility
+targetCompatibility = compatibility
+
+test {
+    maxHeapSize = "2048m"
+    // JUnit platform(JUnit5) を使う設定
+    useJUnitPlatform()
+}
+
 node {
     version = '11.15.0'
     npmVersion = '6.7.0'
@@ -45,12 +54,6 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
-// gulp_test叩くときには、強制的に npm_install を前に実行するように。
-npm_test.dependsOn npm_install
-
-// gradle test の前には、かならず「jsのテスト」を挟む。
-test.dependsOn npm_test
 
 // test の際は、必ずJacocoでカバレッジ取るように。
 jacocoTestReport {
