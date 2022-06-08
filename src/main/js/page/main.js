@@ -101,12 +101,8 @@ class MainPage {
         const server = this._server;
         const html = this._html;
         // イベント定義。
-        html.addClickEventById("startLifeGame", (e) =>
-            this.startLifeGame(e, html, server)
-        );
-        html.addClickEventById("stopLifeGame", (e) =>
-            this.endLifeGame(e, html, server)
-        );
+        html.addClickEventById("startLifeGame", (e) => this.startLifeGame(e, html, server));
+        html.addClickEventById("stopLifeGame", (e) => this.endLifeGame(e, html, server));
     }
 }
 
