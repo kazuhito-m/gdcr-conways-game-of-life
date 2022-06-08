@@ -1,13 +1,12 @@
 package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model.cell;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CellTest {
-
     @Test
     public void 死んでいるセルに隣接する生きたセルがちょうど3つあれば次の世代が誕生する() {
         Cell sut = new Cell(false);
@@ -65,5 +64,4 @@ public class CellTest {
                 .count();
         assertThat(actual).isBetween(4000, 6000);
     }
-
 }

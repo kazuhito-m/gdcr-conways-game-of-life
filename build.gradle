@@ -1,55 +1,53 @@
-repositories {
-    jcenter()
-}
 buildscript {
-    repositories {
-        jcenter()
+    ext {
+        springBootVersion = '2.7.0'
+        encoding = 'UTF-8'
+        compatibility = JavaVersion.VERSION_17
     }
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
-        classpath "com.moowork.gradle:gradle-node-plugin:0.11"
-        classpath "com.moowork.gradle:gradle-gulp-plugin:0.11"
+    repositories {
+        mavenCentral()
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'spring-boot'
-apply plugin: 'idea'
-apply plugin: 'com.moowork.node'
-apply plugin: 'jacoco'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
+    id "com.github.node-gradle.node" version "3.1.1"
+}
 
-jar {
-    baseName = 'gdcr-conways-game-of-life'
-    version = '0.0.1-SNAPSHOT'
+repositories {
+    mavenCentral()
+}
+
+group = 'github.com.kazuhitom'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = compatibility
+targetCompatibility = compatibility
+
+test {
+    maxHeapSize = "2048m"
+    // JUnit platform(JUnit5) を使う設定
+    useJUnitPlatform()
 }
 
 node {
-    version = '7.0.0'
+    version = '11.15.0'
+    npmVersion = '6.7.0'
     download = true
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-redis'
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1'
+    implementation 'org.springframework.boot:spring-boot-devtools'
 
-    compile 'com.fasterxml.jackson.core:jackson-core:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
-
-    compile 'org.springframework.boot:spring-boot-devtools'
-
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
-
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
-// gulp_test叩くときには、強制的に npm_install を前に実行するように。
-npm_test.dependsOn npm_install
-
-// gradle test の前には、かならず「jsのテスト」を挟む。
-test.dependsOn npm_test
 
 // test の際は、必ずJacocoでカバレッジ取るように。
 jacocoTestReport {
