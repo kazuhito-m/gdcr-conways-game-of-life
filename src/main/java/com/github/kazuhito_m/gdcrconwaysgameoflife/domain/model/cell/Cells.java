@@ -44,8 +44,8 @@ public class Cells {
 
     public static Cells initialize(WorldCondition condition) {
         Map<Position, Cell> newCells = new HashMap<>();
-        for (int row = 0; row < condition.rowCount(); row++) {
-            for (int column = 0; column < condition.columnCount(); column++) {
+        for (int row = 0; row < condition.rowCount; row++) {
+            for (int column = 0; column < condition.columnCount; column++) {
                 newCells.put(new Position(row, column), Cell.randomInitialize());
             }
         }
