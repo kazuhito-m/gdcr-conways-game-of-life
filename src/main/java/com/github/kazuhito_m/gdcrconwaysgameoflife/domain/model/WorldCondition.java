@@ -3,22 +3,11 @@ package com.github.kazuhito_m.gdcrconwaysgameoflife.domain.model;
 import java.io.Serializable;
 
 public class WorldCondition implements Serializable {
-    private int columnCount;
-    private int rowCount;
-
-    public int columnCount() {
-        return columnCount;
-    }
-
-    public int rowCount() {
-        return rowCount;
-    }
+    public final int columnCount;
+    public final int rowCount;
 
     public int[][] blankMatrix() {
         return new int[rowCount][columnCount];
-    }
-
-    public WorldCondition() {
     }
 
     public WorldCondition(int columnCount, int rowCount) {
