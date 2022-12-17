@@ -2,7 +2,7 @@ buildscript {
     ext {
         springBootVersion = '2.7.0'
         encoding = 'UTF-8'
-        compatibility = JavaVersion.VERSION_17
+        compatibility = JavaVersion.VERSION_19
     }
     repositories {
         mavenCentral()
@@ -55,7 +55,8 @@ jacocoTestReport {
         html.enabled true
     }
 }
-test.finalizedBy jacocoTestReport
+// FIXME テストが失敗しても成功判定となってしまうので、一旦Jacocoは出さなくする。
+// test.finalizedBy jacocoTestReport
 
 // gradle bootRun の前にも、必ず「jsのトランスパイル」を挟む
 processResources.dependsOn npm_run_build
