@@ -36,3 +36,6 @@ src/main/resources/static/js/index.js
 
 # user difinition
 src/main/resources/config/sosial.yml
+.vscode/
+bin/
+
