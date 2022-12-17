@@ -11,6 +11,10 @@ GDCR Conways game of life.
 [Global Day of Coderetreat 2017 in Osaka](https://connpass.com/event/68170/)
 にてテーマになっていたものを、「上手く書けなかった」という心残りから、その後独自に実装しました。
 
+## Prerequisite
+
+開発に使う `Java` のバージョンは、 CIのファイルである `.github/workflows/ci.yml` を参照。
+
 ## Usage
 
 ```bash
